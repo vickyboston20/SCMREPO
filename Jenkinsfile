@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build') {
       agent{
@@ -8,9 +8,9 @@ pipeline {
           customWorkspace '/home/jenkins/jenkins-agent/customWorkspace'
         }
       }
-      // options {
-      //   skipDefaultCheckout()
-      // }
+      options {
+        skipDefaultCheckout()
+      }
       steps {
         echo "this is build"
       }
