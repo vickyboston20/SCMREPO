@@ -1,28 +1,14 @@
 pipeline {
-  agent {
-    node {
-      label 'ssh-node'
-    }
-
-  }
+  agent none
   stages {
     stage('Build') {
+      agent any
+      options {
+        skipDefaultCheckout()
+      }
       steps {
-        sh 'echo "this is build"'
+        echo "this is build"
       }
     }
-
-    stage('test') {
-      steps {
-        sh 'echo "this is test"'
-      }
-    }
-
-    stage('deploy') {
-      steps {
-        echo 'deployed successfully'
-      }
-    }
-
   }
 }
